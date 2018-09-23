@@ -1,0 +1,63 @@
+git checkout fileName - отменит не зафиксированные изменени€
+git log --pretty=oneline - выводит историю коммитов в строчку
+git log --pretty=oneline --max-count=2 - выведет 2 последних коммита
+git log --pretty=oneline --since='5 minutes ago'
+git log --pretty=oneline --until='5 minutes ago'
+git log --pretty=oneline --author=<your name>
+git log --pretty=oneline --all
+
+---параметры вывода---
+--pretty="..." Ч определ€ет формат вывода.
+%h Ч укороченный хэш коммита
+%d Ч дополнени€ коммита (Ђголовыї веток или теги)
+%ad Ч дата коммита
+%s Ч комментарий
+%an Ч им€ автора
+--graph Ч отображает дерево коммитов в виде ASCII-графика
+--date=short Ч сохран€ет формат даты коротким и симпатичным
+------
+
+---установка алиасов---
+git config --global alias.co checkout
+git config --global alias.ci commit
+git config --global alias.st status
+git config --global alias.br branch
+git config --global alias.hist "log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short"
+git config --global alias.type 'cat-file -t'
+git config --global alias.dump 'cat-file -p'
+------
+
+---более удобные алиасы---
+alias gs='git status '
+alias ga='git add '
+alias gb='git branch '
+alias gc='git commit'
+alias gd='git diff'
+alias go='git checkout '
+alias gk='gitk --all&'
+alias gx='gitx --all'
+alias got='git '
+alias get='git '
+------
+
+cat filename - просмотр файла из консоли
+git tag v1 - создаст тег, в последствии можно переключаться не по хэшу, а по тегам
+git checkout v1^ - перейдет на коммит предшествующий v1
+git checkout v1^~1 - перейдет на коммит предшествующий v1^
+git revert HEAD(или хэш коммита) - отменит нежелательный коммит
+--hard указывает, что рабочий каталог должен быть обновлен в соответствии с новым head ветки
+git commit --amend -m "Add an author/email comment" - изменит последний коммит, этого же эффекта можно достичь путем сброса последнего коммита в ветке, и повторного коммита новых изменений.
+mkdir lib сщздает каталог
+git mv hello.html lib перемещает файл в каталог
+
+---Поиск по каталогу репо---
+git cat-file -p f6593f8 -получаем хэш дерева, подставляем в такую же команду после параметра p, находим файл, вставляем хэш файла и просматриваем его
+------
+
+git checkout style -сливаем мастер в style
+git merge master -сливаем мастер в style
+
+
+
+
+
